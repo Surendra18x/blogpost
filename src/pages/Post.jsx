@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 export default function Post() {
   const [post, setPost] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
+
 
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -23,15 +23,10 @@ export default function Post() {
         else navigate("/");
       });
     } else navigate("/");
+    
   }, [slug, navigate]);
 
 
-
-  useEffect(() => {
-    appwriteService
-      .getFilePreview(post.featuredImage)
-      .then((url) => setImageUrl(url));
-  }, []);
 
 
   const deletePost = () => {
@@ -47,9 +42,7 @@ export default function Post() {
     <div className="py-8">
       <Container>
         <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
-          {imageUrl && (
-            <img src={imageUrl} alt={post.title} className="rounded-xl" />
-          )}
+            <img src={appwriteService.getFilePreview(post.featuredImage)} alt={post.title} className="rounded-xl" />
 
           {isAuthor && (
             <div className="absolute right-6 top-6">

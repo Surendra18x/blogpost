@@ -6,6 +6,7 @@ import { Container, PostCard } from '../components'
 function Home() {
 
     const [posts,setPosts] = useState([])
+    const [loading,setLoading] = useState(true)
 
     useEffect(() => {
         appwriteService.getPosts().then((posts) => {
@@ -13,6 +14,7 @@ function Home() {
                 setPosts(posts.documents)
             }
         })
+        setLoading(false)
     },[])
 
     if (posts.length === 0) {
@@ -31,7 +33,7 @@ function Home() {
             </div>
         )
     }
-    return (
+    return !loading ? (
         <div className='w-full py-8'>
             <Container>
                 <div className='flex flex-wrap'>
@@ -43,7 +45,7 @@ function Home() {
                 </div>
             </Container>
         </div>
-    )
+    ) : <div>loading</div>
 }
 
 export default Home

@@ -35,7 +35,7 @@ async createPost({title,content,slug,status,featuredImage,userId}){
     }
 }
 
-async updatePost({title,slug,content,featuredImage,status}){
+async updatePost(slug,{title,content,featuredImage,status}){
     try {
         return await this.databases.updateDocument(
             config.appwriteDatabaseId,
@@ -68,7 +68,6 @@ async deletePost(slug){
 }
 
 async getPost(slug){
-    console.log("slug recieved ===> ", slug)
     try {
         return await this.databases.getDocument(
             config.appwriteDatabaseId,
