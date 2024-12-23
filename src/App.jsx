@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import authService from "./appwrite/auth";
-import "./App.css";
 import { login, logout } from "./store/authSlice";
 import { Header, Footer } from "./components";
 import { Outlet } from "react-router-dom";
@@ -25,10 +24,13 @@ function App() {
   }, []);
 
   return !loading ? (
-    <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
-      <div className="w-full block">
+    <div className="h-screen w-full flex flex-col bg-cover  bg-[url(https://c1.wallpaperflare.com/preview/71/573/220/whitespace-business-office-blog-blogging-create.jpg)] ">
+      <div className="w-full  min-h-screen flex flex-col  ">
         <Header />
-        <main> <Outlet/>  </main>
+        <main className="flex-1">
+          {" "}
+          <Outlet />{" "}
+        </main>
         <Footer />
       </div>
     </div>
