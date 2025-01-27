@@ -24,7 +24,7 @@ function App() {
   }, []);
 
   return !loading ? (
-    <div className="h-screen w-full flex flex-col bg-cover  bg-[url(https://c1.wallpaperflare.com/preview/71/573/220/whitespace-business-office-blog-blogging-create.jpg)] ">
+    <div className="h-screen w-full flex flex-col bg-contain  bg-[url(https://png.pngtree.com/background/20210710/original/pngtree-fist-recruitment-requires-you-to-have-a-minimalist-background-picture-image_1004745.jpg)] ">
       <div className="w-full  min-h-screen flex flex-col  ">
         <Header />
         <main className="flex-1">

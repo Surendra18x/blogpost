@@ -6,7 +6,6 @@ import {useSelector} from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 export default function PostForm({post}) {
-
     const {register,handleSubmit,watch,setValue,getValues,control} = useForm({
         defaultValues: {
             title: post?.title || "",
@@ -20,7 +19,6 @@ export default function PostForm({post}) {
     const userData = useSelector((state) => state.auth.userData);
 
     const submit = async (data) => {
-        console.log("data ===> ",data)
         if (post) {
             const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
 

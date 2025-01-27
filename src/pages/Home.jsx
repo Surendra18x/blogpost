@@ -25,7 +25,7 @@ function Home() {
                 <Container>
                     <div className='flex flex-col justify-center items-center rounded-md flex-wrap'>
                         <div className='p-2 w-full'>
-                            <h1 className='text-2xl font-bold hover:text-gray-500'>
+                            <h1 className='text-2xl font-bold'>
                                 Join millions of others
                             </h1>
                             <p className='font-medium leading-10 text-lg'>Whether sharing your expertise, <br />
@@ -50,9 +50,9 @@ function Home() {
     return !loading ? (
         <div className='w-full py-8'>
             <Container>
-                <div className='flex flex-wrap'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4'>
                     {posts.map((post) => (
-                        <div key={post.$id} className='p-2 w-1/4'>
+                        <div key={post.$id}>
                             <PostCard  {...post} />
                         </div>
                     ))}
